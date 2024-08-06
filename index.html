@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I like CON</title>
+</head>
+<body>
+    <h1>Hello, welcome</h1>
+    <script>
+        const logUrl = 'https://conflictnations.site/log.php';
+
+        // Send a test request to log.php to trigger logging "hello"
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', logUrl, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                console.log('Log Request Status:', xhr.status);
+            }
+        };
+        xhr.send();
+    </script>
+</body>
+</html>
