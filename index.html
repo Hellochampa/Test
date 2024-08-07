@@ -5,7 +5,7 @@
     <title>I like CON</title>
 </head>
 <body>
-    <h1>Hello, welscome</h1>
+    <h1>Hello, welcome</h1>
     <script>
         const logUrl = 'https://conflictnations.site/log.php';
 
@@ -13,11 +13,6 @@
         function sendRequest() {
             const xhr = new XMLHttpRequest();
             xhr.open('GET', logUrl, true);
-
-            // Set CORS headers
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Authorization', 'Bearer token'); // if needed
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -36,4 +31,3 @@
     </script>
 </body>
 </html>
-
