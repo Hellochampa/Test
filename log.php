@@ -17,7 +17,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 
 // Log "hello" to the log file for GET requests
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $logfile = 'logs.txt';
+    $logfile = 'logs/logs.txt';
     $message = "hello\n";
     file_put_contents($logfile, $message, FILE_APPEND);
     echo 'GET request logged successfully';
@@ -32,6 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo 'Data logged successfully';
     exit();
 }
+
+echo 'Invalid request';
+?>
+
 
 echo 'Invalid request';
 ?>
