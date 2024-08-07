@@ -17,7 +17,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-W
 
 // Log "hello" to the log file for GET requests
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $logfile = 'logs/logs.txt';
+    $logfile = 'logs.txt';
     $message = "hello\n";
     file_put_contents($logfile, $message, FILE_APPEND);
     echo 'GET request logged successfully';
