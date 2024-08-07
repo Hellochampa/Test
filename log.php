@@ -17,7 +17,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 // Log "hello" to the log file
-$logfile = 'logs/logs.txt';
+$logfile = 'logs.txt';
 $message = "hello\n";
 file_put_contents($logfile, $message, FILE_APPEND);
 
