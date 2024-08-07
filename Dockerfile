@@ -7,5 +7,5 @@ COPY . /var/www/html/
 # Set the working directory
 WORKDIR /var/www/html/
 
-# Expose port 80 to the host
+# Expose port 80 to the hosts
 EXPOSE 80
