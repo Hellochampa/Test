@@ -5,19 +5,23 @@
     <title>I like CON</title>
 </head>
 <body>
-    <h1>Hello, welcome1s</h1>
+    <h1>Hello, welcome</h1>
     <script>
         const logUrl = 'https://conflictnations.site/log.php';
 
-        // Send a test request to log.php to trigger logging "hello"
+        // Send a test GET request to log.php to trigger logging "hello"
         const xhr = new XMLHttpRequest();
         xhr.open('GET', logUrl, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 console.log('Log Request Status:', xhr.status);
+                if (xhr.status === 200) {
+                    console.log('Response:', xhr.responseText);
+                }
             }
         };
         xhr.send();
     </script>
 </body>
 </html>
+
