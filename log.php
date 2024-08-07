@@ -1,19 +1,18 @@
 <?php
-// Allow from any origin
+// Handle CORS preflight requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     if (isset($_SERVER['HTTP_ORIGIN'])) {
-        // Allow specific origin or use wildcard *
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     } else {
         header("Access-Control-Allow-Origin: *");
     }
     header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
     header("Access-Control-Allow-Credentials: true");
     exit(0);
 }
 
-// Allow from any origin for actual requests
+// Handle actual requests
 if (isset($_SERVER['HTTP_ORIGIN'])) {
     header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
 } else {
@@ -21,7 +20,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 }
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 // Log "hello" to the log file
 $logfile = 'logs/logs.txt';
