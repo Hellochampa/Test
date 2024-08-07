@@ -1,29 +1,28 @@
 <?php
 // Handle CORS preflight requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-    if (isset($_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-    } else {
-        header("Access-Control-Allow-Origin: *");
-    }
+    // Allow from any origin
+    header("Access-Control-Allow-Origin: *");
+    // Allow specific methods
     header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    // Allow specific headers
     header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+    // Allow credentials
     header("Access-Control-Allow-Credentials: true");
     exit(0);
 }
 
-// Handle actual requests
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-} else {
-    header("Access-Control-Allow-Origin: *");
-}
+// Allow from any origin for actual requests
+header("Access-Control-Allow-Origin: *");
+// Allow credentials
 header("Access-Control-Allow-Credentials: true");
+// Allow specific methods
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+// Allow specific headers
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
 // Log "hello" to the log file
-$logfile = 'logs/logs.txt';
+$logfile = 'logs.txt';
 $message = "hello\n";
 file_put_contents($logfile, $message, FILE_APPEND);
 
