@@ -5,7 +5,7 @@
     <title>I like CON</title>
 </head>
 <body>
-    <h1>Hello, welcome</h1>
+    <h1>Hello, wcome</h1>
     <script>
         const logUrl = 'https://conflictnations.site/log.php';
 
@@ -14,16 +14,18 @@
             const xhr = new XMLHttpRequest();
             xhr.open('GET', logUrl, true);
 
-            // Set CORS headers
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Authorization', 'Bearer token'); // if needed
-            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            // Set custom headers
+            xhr.setRequestHeader('Sec-Fetch-Dest', 'empty');
+            xhr.setRequestHeader('Sec-Fetch-Mode', 'cors');
+            xhr.setRequestHeader('Sec-Fetch-Site', 'cross-site');
 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     console.log('Log Request Status:', xhr.status);
                     if (xhr.status === 200) {
                         console.log('Response:', xhr.responseText);
+                    } else {
+                        console.error('CORS Error:', xhr.statusText);
                     }
                 }
             };
@@ -36,3 +38,4 @@
     </script>
 </body>
 </html>
+
